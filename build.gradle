@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.11.3'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+group = "com.cs"
+version = '2.0.1'
+
+jar {
+    manifest {
+        attributes(
+            "Class-Path": "com.cs",
+            "Implementation-Title": project.name,
+            "Implementation-Version": version,
+            "Implementation-Vendor": "ms",
+            "Build-Jdk": org.gradle.internal.jvm.Jvm.current(),
+            "Gradle-Version": GradleVersion.current().toString()
+        )
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifactId = project.name
+        }
+    }
+    repositories {
+        mavenLocal() // Publish to local Maven repository
+    }
+}
