@@ -1,12 +1,12 @@
 package com.cs.rp.model;
 
-public class World {
+public class RpWorld {
     private String name;
     private String description;
 
-    public World() {}
+    public RpWorld() {}
 
-    public World(String name, String description) {
+    public RpWorld(String name, String description) {
         this.name = name;
         this.description = description;
     }

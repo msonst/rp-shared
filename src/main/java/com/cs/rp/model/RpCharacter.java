@@ -1,12 +1,12 @@
 package com.cs.rp.model;
 
-public class Character {
+public class RpCharacter {
     private String name;
     private String description;
 
-    public Character() {}
+    public RpCharacter() {}
 
-    public Character(String name, String description) {
+    public RpCharacter(String name, String description) {
         this.name = name;
         this.description = description;
     }
